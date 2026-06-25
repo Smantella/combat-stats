@@ -1,0 +1,68 @@
+{
+  "COMBATSTATS": {
+    "Settings": {
+      "Title": "⚔️ Combat Stats — Impostazioni",
+      "Workflow": "Workflow & Permessi",
+      "TrackerMode": "Modalità tracker",
+      "TrackerModeHint": "Ricarica (F5) dopo il cambio.",
+      "TrackerNative": "D&D 5e Standard (senza MidiQOL)",
+      "TrackerMidi": "MidiQOL",
+      "PlayersViewCharts": "Giocatori vedono i grafici",
+      "Theme": "Tema Colori",
+      "ColorAccent": "Accento",
+      "ColorBg": "Sfondo",
+      "ColorBgRow": "Righe",
+      "ColorDealt": "Inflitti",
+      "ColorTaken": "Subiti",
+      "ColorHealed": "Cure",
+      "ColorText": "Testo",
+      "ResetColors": "Ripristina colori default",
+      "DataManagement": "Gestione Dati",
+      "FightsSaved": "Scontri salvati",
+      "SelectFight": "— seleziona uno scontro —",
+      "ExportExcel": "Esporta in Excel",
+      "DeleteHistory": "Cancella cronologia",
+      "DeleteFight": "Elimina scontro selezionato",
+      "Save": "Salva",
+      "ConfirmDeleteFight": "Eliminare <strong>{name}</strong> ({date})?",
+      "ConfirmDeleteAll": "<p>Eliminare <strong>tutta</strong> la cronologia? Operazione irreversibile.</p>",
+      "DeleteFightTitle": "Elimina Scontro",
+      "DeleteAllTitle": "Cancella Cronologia",
+      "FightDeleted": "\"{name}\" eliminato.",
+      "HistoryCleared": "Cronologia eliminata.",
+      "Saved": "Impostazioni salvate.",
+      "ReloadWarning": "Combat Stats | Ricarica Foundry (F5) per applicare.",
+      "SelectFirst": "Seleziona prima uno scontro da eliminare."
+    },
+    "Combat": {
+      "DefaultName": "Scontro #{n}",
+      "NamePromptTitle": "⚔️ Combat Stats — Nome Scontro",
+      "NamePromptLabel": "Nome dello scontro:",
+      "NamePromptConfirm": "Conferma"
+    },
+    "Summary": {
+      "Character": "Personaggio",
+      "Dealt": "Inflitti",
+      "Taken": "Subiti",
+      "Healed": "Cure",
+      "Defeated": "Sconfitti",
+      "Total": "Totale",
+      "EnemiesDefeated": "Nemici sconfitti"
+    },
+    "UI": {
+      "OpenStats": "Apri Combat Stats",
+      "Totals": "Totali",
+      "Chart": "Grafico",
+      "OpenFight": "Apri scontro:",
+      "Dealt": "Inflitti",
+      "Taken": "Subiti",
+      "Healed": "Cure",
+      "Defeated": "Sconfitti",
+      "Bar": "Bar",
+      "Line": "Line",
+      "NoData": "Nessuno scontro registrato.<br>Termina un combat per iniziare.",
+      "DeleteFight": "Elimina questo scontro",
+      "SelectFight": "— seleziona —"
+    }
+  }
+}

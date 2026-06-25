@@ -1,0 +1,68 @@
+{
+  "COMBATSTATS": {
+    "Settings": {
+      "Title": "⚔️ Combat Stats — Settings",
+      "Workflow": "Workflow & Permissions",
+      "TrackerMode": "Tracker mode",
+      "TrackerModeHint": "Reload (F5) after changing.",
+      "TrackerNative": "D&D 5e Standard (no MidiQOL)",
+      "TrackerMidi": "MidiQOL",
+      "PlayersViewCharts": "Players can view charts",
+      "Theme": "Colour Theme",
+      "ColorAccent": "Accent",
+      "ColorBg": "Background",
+      "ColorBgRow": "Rows",
+      "ColorDealt": "Damage Dealt",
+      "ColorTaken": "Damage Taken",
+      "ColorHealed": "Healing",
+      "ColorText": "Text",
+      "ResetColors": "Reset to defaults",
+      "DataManagement": "Data Management",
+      "FightsSaved": "Saved fights",
+      "SelectFight": "— select a fight —",
+      "ExportExcel": "Export to Excel",
+      "DeleteHistory": "Clear all history",
+      "DeleteFight": "Delete selected fight",
+      "Save": "Save",
+      "ConfirmDeleteFight": "Delete <strong>{name}</strong> ({date})?",
+      "ConfirmDeleteAll": "<p>Delete <strong>all</strong> combat history? This cannot be undone.</p>",
+      "DeleteFightTitle": "Delete Fight",
+      "DeleteAllTitle": "Clear History",
+      "FightDeleted": "\"{name}\" deleted.",
+      "HistoryCleared": "History cleared.",
+      "Saved": "Settings saved.",
+      "ReloadWarning": "Combat Stats | Reload (F5) to apply tracker mode change.",
+      "SelectFirst": "Select a fight to delete first."
+    },
+    "Combat": {
+      "DefaultName": "Fight #{n}",
+      "NamePromptTitle": "⚔️ Combat Stats — Fight Name",
+      "NamePromptLabel": "Fight name:",
+      "NamePromptConfirm": "Confirm"
+    },
+    "Summary": {
+      "Character": "Character",
+      "Dealt": "Dealt",
+      "Taken": "Taken",
+      "Healed": "Healed",
+      "Defeated": "Defeated",
+      "Total": "Total",
+      "EnemiesDefeated": "Enemies defeated"
+    },
+    "UI": {
+      "OpenStats": "Open Combat Stats",
+      "Totals": "Totals",
+      "Chart": "Chart",
+      "OpenFight": "Open fight:",
+      "Dealt": "Dealt",
+      "Taken": "Taken",
+      "Healed": "Healed",
+      "Defeated": "Defeated",
+      "Bar": "Bar",
+      "Line": "Line",
+      "NoData": "No fights recorded yet.<br>End a combat to start.",
+      "DeleteFight": "Delete this fight",
+      "SelectFight": "— select —"
+    }
+  }
+}

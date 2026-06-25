@@ -1,0 +1,168 @@
+{{!-- charts.hbs v1.5.3 --}}
+<div class="cs-charts-wrap">
+
+  {{!-- Tab bar --}}
+  <div class="cs-tabs">
+    <button class="cs-tab-btn {{#if (eq tab 'totals')}}active{{/if}}" data-tab="totals">
+      <i class="fa-solid fa-sigma"></i> Totali
+    </button>
+    <button class="cs-tab-btn {{#if (eq tab 'history')}}active{{/if}}" data-tab="history">
+      <i class="fa-solid fa-chart-column"></i> Grafico
+    </button>
+    {{#if selectedFight}}
+    <button class="cs-tab-btn {{#if (eq tab 'fight')}}active{{/if}}" data-tab="fight">
+      <i class="fa-solid fa-swords"></i> {{selectedFight.name}}
+    </button>
+    <span id="cs-close-fight-tab" class="cs-tab-close-x" title="Chiudi scheda">✕</span>
+    {{/if}}
+
+    <div class="cs-tabs-right">
+      {{!-- Export and reset moved to Module Settings --}}
+    </div>
+  </div>
+
+  {{!-- ══ TAB: TOTALI ══ --}}
+  {{#if (eq tab 'totals')}}
+  <div class="cs-tab-content">
+    {{#if hasData}}
+    <div class="cs-fight-bar">
+      <label>Apri scontro:</label>
+      <select id="cs-fight-select">
+        <option value="">— seleziona —</option>
+        {{#each history}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <table class="cs-table">
+      <thead><tr>
+        <th>Personaggio</th>
+        <th>⚔️ Inflitti</th><th>🛡️ Subiti</th><th>💚 Cure</th><th>💀 Sconfitti</th>
+      </tr></thead>
+      <tbody>
+        {{#each totals}}
+        <tr>
+          <td class="cs-name">{{name}}</td>
+          <td class="cs-dealt">{{damageDealt}}</td>
+          <td class="cs-taken">{{damageTaken}}</td>
+          <td class="cs-healed">{{healingDone}}</td>
+          <td class="cs-kills">{{kills}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+      <tfoot><tr class="cs-totals-row">
+        <td><strong>Totale</strong></td>
+        <td><strong>{{grandTotal.damageDealt}}</strong></td>
+        <td><strong>{{grandTotal.damageTaken}}</strong></td>
+        <td><strong>{{grandTotal.healingDone}}</strong></td>
+        <td><strong>{{grandTotal.kills}}</strong></td>
+      </tr></tfoot>
+    </table>
+    {{else}}
+    <p class="cs-no-data">
+      <i class="fa-solid fa-chart-column" style="font-size:2em;opacity:0.3;display:block;margin-bottom:8px;"></i>
+      Nessuno scontro registrato.<br>Termina un combat per iniziare.
+    </p>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- ══ TAB: GRAFICO ══ --}}
+  {{#if (eq tab 'history')}}
+  <div class="cs-tab-content cs-tab-chart">
+    <div class="cs-chart-toolbar">
+      <div class="cs-btn-group">
+        <button class="cs-mode-btn {{#if (eq metric 'dealt')}}active{{/if}}" data-mode="dealt">⚔️ Inflitti</button>
+        <button class="cs-mode-btn {{#if (eq metric 'taken')}}active{{/if}}" data-mode="taken">🛡️ Subiti</button>
+        <button class="cs-mode-btn {{#if (eq metric 'healed')}}active{{/if}}" data-mode="healed">💚 Cure</button>
+        <button class="cs-mode-btn {{#if (eq metric 'kills')}}active{{/if}}" data-mode="kills">💀 Sconfitti</button>
+      </div>
+      <div class="cs-btn-group">
+        <button class="cs-type-btn {{#if (eq chartType 'bar')}}active{{/if}}" data-type="bar">
+          <i class="fa-solid fa-chart-column"></i> Bar
+        </button>
+        <button class="cs-type-btn {{#if (eq chartType 'line')}}active{{/if}}" data-type="line">
+          <i class="fa-solid fa-chart-line"></i> Line
+        </button>
+      </div>
+    </div>
+    {{#if hasData}}
+    <div class="cs-chart-container">
+      <canvas id="cs-chart-canvas"></canvas>
+    </div>
+    {{else}}
+    <p class="cs-no-data">Nessun dato ancora.</p>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- ══ TAB: SCONTRO SINGOLO ══ --}}
+  {{#if (eq tab 'fight')}}
+  {{#if selectedFight}}
+  <div class="cs-tab-content">
+
+    <div class="cs-fight-header">
+      <i class="fa-solid fa-swords"></i>
+      <span class="cs-fight-title">{{selectedFight.name}}</span>
+      <span class="cs-fight-date">{{date}}</span>
+      {{#if isGM}}
+      <button id="cs-delete-fight" class="cs-danger cs-delete-fight-btn" title="Elimina questo scontro">
+        <i class="fas fa-trash"></i> Elimina scontro
+      </button>
+      {{/if}}
+    </div>
+
+    {{#if fightChars}}
+    <table class="cs-table">
+      <thead><tr>
+        <th>Personaggio</th>
+        <th>⚔️ Inflitti</th><th>🛡️ Subiti</th><th>💚 Cure</th><th>💀 Sconfitti</th>
+      </tr></thead>
+      <tbody>
+        {{#each fightChars}}
+        <tr>
+          <td class="cs-name">{{name}}</td>
+          <td class="cs-dealt">{{damageDealt}}</td>
+          <td class="cs-taken">{{damageTaken}}</td>
+          <td class="cs-healed">{{healingDone}}</td>
+          <td class="cs-kills">{{kills}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+      <tfoot><tr class="cs-totals-row">
+        <td><strong>Totale</strong></td>
+        <td><strong>{{fightTotal.damageDealt}}</strong></td>
+        <td><strong>{{fightTotal.damageTaken}}</strong></td>
+        <td><strong>{{fightTotal.healingDone}}</strong></td>
+        <td><strong>{{fightTotal.kills}}</strong></td>
+      </tr></tfoot>
+    </table>
+
+    {{#if (gt fightDefeated.length 0)}}
+    <div class="cs-defeated-list">
+      <div class="cs-defeated-header">
+        <i class="fa-solid fa-skull"></i> Nemici sconfitti ({{fightDefeated.length}})
+      </div>
+      <div class="cs-defeated-names">
+        {{#each fightDefeated}}
+        <span class="cs-defeated-tag">
+          {{#if killerName}}
+            <span class="cs-killer">{{killerName}}</span>
+            <i class="fa-solid fa-skull cs-kill-icon"></i>
+          {{/if}}
+          <span class="cs-victim">{{name}}</span>
+        </span>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{else}}
+    <p class="cs-no-data">Nessun dato per questo scontro.</p>
+    {{/if}}
+  </div>
+  {{/if}}
+  {{/if}}
+
+</div>

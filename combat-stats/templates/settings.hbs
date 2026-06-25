@@ -1,0 +1,98 @@
+{{!-- settings.hbs v1.6.4 --}}
+<form class="cs-settings-form">
+
+  <section class="cs-settings-section">
+    <h3><i class="fa-solid fa-gears"></i> {{localize "COMBATSTATS.Settings.Workflow"}}</h3>
+    <div class="cs-setting-row">
+      <label>{{localize "COMBATSTATS.Settings.TrackerMode"}}</label>
+      <select name="trackerMode">
+        <option value="native" {{#if (eq trackerMode 'native')}}selected{{/if}}>
+          {{localize "COMBATSTATS.Settings.TrackerNative"}}
+        </option>
+        <option value="midi" {{#if (eq trackerMode 'midi')}}selected{{/if}}>
+          {{localize "COMBATSTATS.Settings.TrackerMidi"}}
+        </option>
+      </select>
+      <p class="cs-hint">{{localize "COMBATSTATS.Settings.TrackerModeHint"}}</p>
+    </div>
+    <div class="cs-setting-row cs-setting-toggle">
+      <label>{{localize "COMBATSTATS.Settings.PlayersViewCharts"}}</label>
+      <input type="checkbox" name="playersCanViewCharts" {{#if playersCanViewCharts}}checked{{/if}}>
+    </div>
+  </section>
+
+  <section class="cs-settings-section">
+    <h3><i class="fa-solid fa-palette"></i> {{localize "COMBATSTATS.Settings.Theme"}}</h3>
+    <div class="cs-color-grid">
+      <div class="cs-color-item">
+        <input type="color" name="colorAccent" value="{{colorAccent}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorAccent"}}</label>
+      </div>
+      <div class="cs-color-item">
+        <input type="color" name="colorBg" value="{{colorBg}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorBg"}}</label>
+      </div>
+      <div class="cs-color-item">
+        <input type="color" name="colorBgRow" value="{{colorBgRow}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorBgRow"}}</label>
+      </div>
+      <div class="cs-color-item">
+        <input type="color" name="colorDealt" value="{{colorDealt}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorDealt"}}</label>
+      </div>
+      <div class="cs-color-item">
+        <input type="color" name="colorTaken" value="{{colorTaken}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorTaken"}}</label>
+      </div>
+      <div class="cs-color-item">
+        <input type="color" name="colorHealed" value="{{colorHealed}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorHealed"}}</label>
+      </div>
+      <div class="cs-color-item">
+        <input type="color" name="colorText" value="{{colorText}}">
+        <label>{{localize "COMBATSTATS.Settings.ColorText"}}</label>
+      </div>
+    </div>
+    <button type="button" id="cs-reset-colors" class="cs-btn-secondary">
+      <i class="fa-solid fa-rotate-left"></i> {{localize "COMBATSTATS.Settings.ResetColors"}}
+    </button>
+  </section>
+
+  <section class="cs-settings-section">
+    <h3><i class="fa-solid fa-database"></i> {{localize "COMBATSTATS.Settings.DataManagement"}}</h3>
+    <div class="cs-setting-row">
+      <label>{{localize "COMBATSTATS.Settings.FightsSaved"}}</label>
+      <span style="color:var(--cs-accent);font-weight:700;">{{fightCount}}</span>
+    </div>
+
+    {{#if fights.length}}
+    <div class="cs-setting-row" style="align-items:center;gap:8px;margin-top:4px;">
+      <select id="cs-fight-to-delete" style="flex:1;">
+        <option value="">{{localize "COMBATSTATS.Settings.SelectFight"}}</option>
+        {{#each fights}}
+        <option value="{{id}}">{{date}} — {{name}}</option>
+        {{/each}}
+      </select>
+      <button type="button" id="cs-delete-single-fight" class="cs-danger" title="{{localize 'COMBATSTATS.Settings.DeleteFight'}}">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+    {{/if}}
+
+    <div class="cs-data-btns">
+      <button type="button" id="cs-export-data" class="cs-export-btn">
+        <i class="fas fa-file-excel"></i> {{localize "COMBATSTATS.Settings.ExportExcel"}}
+      </button>
+      <button type="button" id="cs-reset-data" class="cs-danger">
+        <i class="fas fa-trash"></i> {{localize "COMBATSTATS.Settings.DeleteHistory"}}
+      </button>
+    </div>
+  </section>
+
+  <div class="cs-settings-footer">
+    <button type="submit" class="cs-btn-primary">
+      <i class="fa-solid fa-floppy-disk"></i> {{localize "COMBATSTATS.Settings.Save"}}
+    </button>
+  </div>
+
+</form>

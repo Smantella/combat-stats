@@ -1,0 +1,60 @@
+{{!-- summary.hbs v1.5.3 --}}
+<div class="cs-summary-wrap">
+  <header class="cs-summary-header">
+    <i class="fa-solid fa-swords" style="color:var(--cs-accent);"></i>
+    <h2>{{record.name}}</h2>
+    <span class="cs-date">{{date}}</span>
+  </header>
+
+  {{#if (gt characters.length 0)}}
+  <table class="cs-table">
+    <thead><tr>
+      <th>Personaggio</th>
+      <th>⚔️ Inflitti</th><th>🛡️ Subiti</th><th>💚 Cure</th><th>💀 Sconfitti</th>
+    </tr></thead>
+    <tbody>
+      {{#each characters}}
+      <tr>
+        <td class="cs-name">{{name}}</td>
+        <td class="cs-dealt">{{damageDealt}}</td>
+        <td class="cs-taken">{{damageTaken}}</td>
+        <td class="cs-healed">{{healingDone}}</td>
+        <td class="cs-kills">{{kills}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot><tr class="cs-totals-row">
+      <td><strong>Totale</strong></td>
+      <td><strong>{{totals.damageDealt}}</strong></td>
+      <td><strong>{{totals.damageTaken}}</strong></td>
+      <td><strong>{{totals.healingDone}}</strong></td>
+      <td><strong>{{totals.kills}}</strong></td>
+    </tr></tfoot>
+  </table>
+
+  {{#if (gt defeatedList.length 0)}}
+  <div class="cs-defeated-list">
+    <div class="cs-defeated-header">
+      <i class="fa-solid fa-skull"></i> Nemici sconfitti ({{defeatedList.length}})
+    </div>
+    <div class="cs-defeated-names">
+      {{#each defeatedList}}
+      <span class="cs-defeated-tag">
+        {{#if killerName}}
+          <span class="cs-killer">{{killerName}}</span>
+          <i class="fa-solid fa-skull cs-kill-icon"></i>
+        {{/if}}
+        <span class="cs-victim">{{name}}</span>
+      </span>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{else}}
+  <p class="cs-no-data">
+    Nessun dato registrato per questo scontro.<br>
+    <small>Verifica che gli attacchi passino dal workflow D&amp;D 5e.</small>
+  </p>
+  {{/if}}
+</div>
