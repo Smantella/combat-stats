@@ -1,4 +1,29 @@
-# combat-stats
-Foundry VTT module - tracks damage, healing and kills per character
-Tracks damage dealt, damage taken, healing done and enemies defeated per character. Supports D&D 5e standard and MidiQOL workflows. Charts, totals, Excel export. IT/EN.
-Tested with FoundryVTT v13.351; D&D 5.3.3
+## ⚔️ Combat Stats
+
+Brings a sleek post-battle summary to your Foundry VTT sessions.
+When combat ends, a card appears for each participant showing:
+
+- 🗡️ Damage dealt
+- 🛡️ Damage taken
+- 💚 Healing done
+- 💀 Kills
+
+Complete with character avatars and color-coded icons.
+
+---
+
+## 📋 Features
+
+- **Named encounters** — give each fight a custom name ("vs City Guards", "Strahd Von Zarovich")
+- **Campaign tracking** — accumulate statistics across an entire campaign
+- **Excel export** — download all data for deeper analysis
+- **Customizable UI** — adjust colors to match your table's style
+- **Bilingual** — fully available in English and Italian 🇬🇧 🇮🇹
+
+---
+
+## 🔧 Compatibility
+
+- Foundry VTT 13+
+- D&D 5e (standard and MidiQOL workflows)
+- Enhanced experience with [Combat Carousel](https://github.com/theripper93/combat-carousel) by theripper93 *(optional)*
