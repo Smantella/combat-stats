@@ -12,6 +12,6 @@
     { "lang": "it", "name": "Italiano", "path": "lang/it.json" }
   ],
   "manifest": "https://raw.githubusercontent.com/Smantella/combat-stats/main/module.json",
-  "download": "https://github.com/Smantella/combat-stats/releases/download/1.1.0/combat-stats.zip",
+  "download": "https://github.com/Smantella/combat-stats/releases/download/1.1.0/combat-stats.v1.1.0.zip",
   "url": "https://github.com/Smantella/combat-stats"
 }
