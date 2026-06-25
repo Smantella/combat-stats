@@ -18,7 +18,9 @@ Complete with character avatars and color-coded icons.
 ![Big bad Kobolds](https://raw.githubusercontent.com/Smantella/combat-stats/refs/heads/main/combat-stats/screenshots/Big%20bad%20kobolds.jpg) 
 - **Campaign tracking** — accumulate statistics across an entire campaign
 - **Excel export** — download all data for deeper analysis
+![Data Management](https://raw.githubusercontent.com/Smantella/combat-stats/refs/heads/main/combat-stats/screenshots/Data%20management.jpg) 
 - **Customizable UI** — adjust colors to match your table's style
+![Custom UI](https://raw.githubusercontent.com/Smantella/combat-stats/refs/heads/main/combat-stats/screenshots/Colours.jpg)
 - **Bilingual** — fully available in English and Italian 🇬🇧 🇮🇹
 
 ---
