@@ -1,4 +1,4 @@
-# ⚔️ Combat Stats
+# Combat Stats
 
 A [FoundryVTT](https://foundryvtt.com/) module for tracking combat performance — damage dealt, damage taken, healing, kills, and more. Works with D&D 5e standard rolls and [MidiQOL](https://gitlab.com/tposney/midi-qol).
 
