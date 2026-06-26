@@ -94,7 +94,7 @@ With `midi` tracker mode:
 
 ## Changelog
 
-### v1.5.0
+### v1.5.0 (coming soon)
 - Settings moved to the native Foundry Game Settings panel
 - Added Overdamage, Overhealing, and Excess Damage Taken tracking
 - Added Big Hit achievement callout with configurable threshold and color
