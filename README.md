@@ -43,6 +43,7 @@ Uses the `dnd5e.healActor` hook. Captured correctly for:
 If attacker resolution fails, damage is bucketed under **Unknown Source** in the table. This is intentional — the damage isn't lost, but it can't be attributed to a specific character.
 
 ## Compatibility
-- Foundry VTT: v11, v12
+- Foundry VTT: v13
 - System: **D&D 5e only** (hooks are system-specific)
 - MidiQOL: should be compatible (both use the same underlying dnd5e hooks)
+- Carousel Combat Tracker
