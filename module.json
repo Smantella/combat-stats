@@ -2,7 +2,7 @@
   "id": "combat-stats",
   "title": "Combat Stats",
   "description": "Tracks damage dealt, damage taken, healing done and enemies defeated per character. Supports D&D 5e standard and MidiQOL workflows. Charts, totals, Excel export. IT/EN.",
-  "version": "1.5.0",
+  "version": "1.1.0",
   "compatibility": { "minimum": "13", "verified": "13.351" },
   "authors": [{ "name": "Smantella" }],
   "esmodules": ["scripts/module.js"],
@@ -12,6 +12,6 @@
     { "lang": "it", "name": "Italiano", "path": "lang/it.json" }
   ],
   "manifest": "https://raw.githubusercontent.com/Smantella/combat-stats/main/module.json",
-  "download": "https://github.com/Smantella/combat-stats/releases/download/v1.5.0/combat-stats.zip",
+  "download": "https://github.com/Smantella/combat-stats/releases/download/v1.1.0/combat-stats.zip",
   "url": "https://github.com/Smantella/combat-stats"
 }
