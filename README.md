@@ -114,7 +114,7 @@ With `midi` tracker mode:
 
 ## Author
 
-**Smantella** — [GitHub](https://github.com/Smantella/combat-stats)
+**Me :D** — [GitHub](https://github.com/Smantella/combat-stats)
 
 Contributions and bug reports welcome via [Issues](https://github.com/Smantella/combat-stats/issues).
 
