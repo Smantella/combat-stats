@@ -13,11 +13,9 @@
 ## 📸 Screenshots
 
 | Totals Table | Chart View |
-|---|---|
+|:---:|:---:|
 | ![Totals](screenshots/Totals.png) | ![Chart](screenshots/Chart.png) |
-
-| End-of-Combat Card | Theme & Settings |
-|---|---|
+| **End-of-Combat Card** | **Theme & Settings** |
 | ![Chat Card](screenshots/chat%20card.png) | ![Theme](screenshots/Style.png) |
 
 ---
