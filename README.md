@@ -1,123 +1,169 @@
-# Combat Stats
+# ⚔️ Combat Stats
 
-A [FoundryVTT](https://foundryvtt.com/) module for tracking combat performance — damage dealt, damage taken, healing, kills, and more. Works with D&D 5e standard rolls and [MidiQOL](https://gitlab.com/tposney/midi-qol).
+> Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight.
 
-![Foundry v13](https://img.shields.io/badge/Foundry-v13-green) ![Version](https://img.shields.io/badge/version-1.5.0-blue) ![Language](https://img.shields.io/badge/lang-EN%20%7C%20IT-yellow)
+![Foundry VTT](https://img.shields.io/badge/Foundry-v13-informational?style=flat-square)
+![D&D 5e](https://img.shields.io/badge/D%26D-5e%20%2F%202024-red?style=flat-square)
+![Version](https://img.shields.io/github/v/release/Smantella/combat-stats?style=flat-square)
+![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey?style=flat-square)
+![Downloads](https://img.shields.io/github/downloads/Smantella/combat-stats/total?style=flat-square)
 
 ---
 
-## Features
+## 📸 Screenshots
 
-### Recap card
-At the end of each combat, a styled card is posted to chat with a summary table for all participants.
-
-- Columns are fully configurable — show only the stats you care about
-- Sub-values (Overdamage, Overhealing, Excess Taken) shown inline with tooltips
-- Defeated enemies grouped by killer: `Chiappe 💀 Kobold Warrior 3×`
-- **Big Hit** callout: highlights any player who landed a hit above a configurable threshold
-
-### Charts window
-A persistent window (reopenable from the sidebar) showing historical data across all fights.
-
-- **Totals tab** — cumulative stats across all recorded fights
-- **Chart tab** — bar or line chart per fight, one metric at a time, one bar per player
-- **Fight tab** — drill into a single fight, with its own stats table and defeated enemies list
-- All columns conditional on your tracked-stats settings
-
-### Tracked statistics
-Toggle each stat on or off from the native Foundry Settings panel:
-
-| Stat | Description |
+| Totals Table | Chart View |
 |---|---|
-| 💀 Kills | Enemies defeated |
-| ⚔️ Damage Dealt | Total damage applied |
-| 💥 Overdamage | Damage beyond the target's remaining HP on a killing blow |
-| 🛡️ Damage Taken | Total damage received |
-| 💔 Excess Taken | Damage received beyond your own remaining HP |
-| 💚 Healing Done | Total HP restored |
-| 🩵 Overhealing | Healing that exceeded the target's max HP |
+| ![Totals](screenshots/Totals.png) | ![Chart](screenshots/Chart.png) |
 
-### Name display
-Choose how character names appear everywhere — full name, first name, last name, or Foundry username.
-
----
-
-## Requirements
-
-- FoundryVTT **v13+**
-- **D&D 5e** system
-- [MidiQOL](https://gitlab.com/tposney/midi-qol) (optional — needed for AoE tracking and improved damage attribution)
-
----
-
-## Installation
-
-**Via Foundry module manager (recommended)**
-
-Paste this manifest URL in *Setup → Add-on Modules → Install Module*:
-
-```
-https://raw.githubusercontent.com/Smantella/combat-stats/main/module.json
-```
-
-**Manual**
-
-Download the latest release zip, extract it into your `Data/modules/` folder, and reload Foundry.
-
----
-
-## Configuration
-
-All settings are in **Game Settings → Module Settings → Combat Stats**.
-
-| Setting | Description |
+| End-of-Combat Card | Theme & Settings |
 |---|---|
-| Tracker mode | `native` (built-in hooks) or `midi` (MidiQOL integration) |
-| Name display | Full / First name / Last name / Username |
-| Tracked Statistics | Toggle which stats to track and display |
-| Big Hit Threshold | Minimum single-hit damage to trigger the Big Hit callout (0 = disabled) |
-| Big Hit Color | Text color for the Big Hit message |
-| Count AoE as single hit | Sum AoE spell damage across all targets into one hit value |
-
-The **Theme & Data** button opens a separate menu for color customization and data management (export to Excel, clear history).
+| ![Chat Card](screenshots/chat%20card.png) | ![Theme](screenshots/Style.png) |
 
 ---
 
-## MidiQOL notes
+## What it does
 
-With `midi` tracker mode:
-- Damage is read from MidiQOL's `damageList`, which provides accurate per-target values including saves
-- Each token is tracked by `targetUuid`, so copied/unlinked tokens of the same actor are counted separately
-- AoE hits can optionally be summed as a single hit for the Big Hit tracker
+Combat Stats is a Foundry VTT module for D&D 5e that automatically tracks combat statistics for every player character, fight by fight, across your entire campaign. When combat ends, a summary card is posted to chat. A dedicated window lets you browse totals, compare characters, and export everything to Excel.
 
----
-
-## Changelog
-
-### v1.5.0 (coming soon)
-- Settings moved to the native Foundry Game Settings panel
-- Added Overdamage, Overhealing, and Excess Damage Taken tracking
-- Added Big Hit achievement callout with configurable threshold and color
-- Added "Count AoE as single hit" option for MidiQOL workflows
-- Defeated enemies now grouped by name and killer in both recap and charts
-- Overdamage / Overhealing / Excess Taken now visible in the Charts window
-- Chart labels now respect the Name Display setting
-- Fixed: copied/unlinked tokens of the same actor now counted as separate kills
-- Fixed: decimal damage values caused by MidiQOL half-damage saves (now rounded)
-- Removed: group icon for the Total row
-- Removed: character portrait in recap (Foundry's chat sanitizer prevents interactive patterns)
-
-### v1.1.0
-- Initial public release
+No setup beyond choosing a tracker mode. No fuss.
 
 ---
 
-## Author
+## ✨ Features
 
-**Me :D** — [GitHub](https://github.com/Smantella/combat-stats)
+### 📊 Deep stat tracking
 
-Contributions and bug reports welcome via [Issues](https://github.com/Smantella/combat-stats/issues).
+Every fight is recorded with a full breakdown per character:
+
+- **Damage dealt**, with overkill (excess damage past 0 HP) — MidiQOL only
+- **Damage taken**, with excess damage absorbed beyond max HP — MidiQOL only
+- **Healing done**, with overhealing tracked separately — MidiQOL only
+- **Kills**, **max single hit**, **max single heal**, **times downed**
+
+Sub-stats like overkill and overhealing are shown inline in the chat card, so the summary stays compact without losing detail. Stats unavailable in the current tracker mode are clearly marked in the settings and hidden automatically from all views.
+
+### 💬 End-of-combat chat card
+
+When combat ends, a styled summary is automatically posted to chat. Columns are configurable independently from tracking: you choose what appears, not what gets recorded. Player names use their Foundry color, and the card adapts to whatever theme you have set.
+
+A **Big Hit achievement** callout highlights the biggest strike of the fight, with a fully customizable message and live preview as you type it.
+
+### 📈 Charts window
+
+A dedicated window (accessible from the scene controls) shows cumulative totals per character across all fights. Switch between any tracked metric with one click, toggle between **Bar** and **Doughnut** views, and export everything to Excel at any time.
+
+Bar and doughnut colors follow each player's Foundry user color automatically.
+
+### 🎨 Full theme customization
+
+14 individually customizable colors covering every stat category, backgrounds, and accents. Changes apply live as you drag the color picker. Reset to defaults at any time.
+
+### 💾 Export and import
+
+- **Export to Excel**: full campaign history as a `.xlsx` spreadsheet
+- **Export JSON**: portable fight history you can back up or share
+- **Import JSON**: smart merge by UUID (no duplicates) or full replace
+
+### ⚙️ Flexible configuration
+
+- **MidiQOL** and **native D&D 5e** tracker modes: in MidiQOL mode, damage is registered only when actually applied, no double-counting
+- Stats that require MidiQOL (overkill, excess damage taken, overhealing) are automatically hidden from all views when using the native tracker
+- Every stat can be toggled independently: tracking and chat card visibility are separate settings
+- Name display: full name, first name, last name, or Foundry username
+- AoE damage and healing can count as a single hit/heal or be evaluated per target for the max hit and max heal trackers
+- Players can optionally be granted access to the Charts window
 
 ---
 
-*Combat Stats is an independent project and is not affiliated with Foundry Gaming LLC or Wizards of the Coast.*
+## 📦 Installation
+
+### Via Foundry Package Manager (recommended)
+
+1. Open Foundry VTT -> **Add-on Modules** -> **Install Module**
+2. Paste the manifest URL:
+   ```
+   https://github.com/Smantella/combat-stats/releases/latest/download/module.json
+   ```
+3. Click **Install**, then enable the module in your world
+
+### Manual
+
+1. Download the latest release from [GitHub Releases](https://github.com/Smantella/combat-stats/releases)
+2. Extract the folder into `Data/modules/`
+3. Enable in Foundry -> **Manage Modules**
+
+---
+
+## 🚀 Quick Start
+
+1. Enable the module and reload Foundry (F5)
+2. Go to **Game Settings -> Module Settings -> Combat Stats**
+3. Set your **Tracker Mode**: `D&D 5e Standard` or `MidiQOL`
+4. Run a combat: stats are tracked automatically
+5. End the combat: a summary card appears in chat
+6. Click the **Combat Stats** button in the scene controls to open the Charts window
+
+---
+
+## ⚙️ Configuration
+
+### Tracker mode
+
+| Mode | When to use |
+|------|-------------|
+| **D&D 5e Standard** | Default dnd5e damage flow, no MidiQOL |
+| **MidiQOL** | MidiQOL is active: damage is registered on Apply, not on roll |
+
+> Changing tracker mode requires a Foundry reload (F5).
+
+### Tracked Statistics
+
+**Settings -> Tracked Statistics** has two independent sections:
+
+- **Tracking**: which stats are computed and stored per fight
+- **Chat card columns**: which stats appear in the end-of-combat summary
+
+Disabling a stat from tracking also hides it everywhere. Disabling it from the chat card only hides it from the summary; it still gets tracked.
+
+Stats that are not available in the current tracker mode are shown as disabled with a "MidiQOL only" badge, and are automatically hidden from the Charts window and chat card.
+
+### Big Hit Achievement
+
+**Settings -> Theme & Data** includes a Big Hit section where you can configure:
+
+- **Threshold**: minimum damage in a single hit to trigger the callout (default 30, set to 0 to disable)
+- **Message**: fully customizable text with `{{name}}`, `{{value}}`, and `{{source}}` placeholders
+- **Live preview**: shows a sample message as you type, with a random name, weapon, and damage value
+
+> The names in the preview are not random — they belong to characters from the author's own campaigns.
+
+### Theme & Data
+
+**Settings -> Theme & Data** covers colors, the Big Hit message, and data management (export, import, clear history).
+
+---
+
+## 🔧 Compatibility
+
+| | Version |
+|--|---------|
+| Foundry VTT | v13+ (tested on 13.351) |
+| D&D 5e system | v4+ (tested on 5.3.3, 2024 edition compatible) |
+| MidiQOL | Optional, fully supported (tested on 13.0.63) |
+
+---
+
+## 🤝 Contributing
+
+Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues): I read them.
+
+---
+
+## 📄 License
+
+[Creative Commons Attribution-ShareAlike 4.0](LICENSE): you are free to use and modify this module, but you must credit the original author and distribute any modified version under the same license.
+
+---
+
+*Made by [Smantella](https://github.com/Smantella) 🏰*
