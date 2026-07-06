@@ -34,10 +34,12 @@ No setup beyond choosing a tracker mode. No fuss.
 
 Every fight is recorded with a full breakdown per character:
 
-- **Damage dealt**, with overkill (excess damage past 0 HP) — MidiQOL only
-- **Damage taken**, with excess damage absorbed beyond max HP — MidiQOL only
-- **Healing done**, with overhealing tracked separately — MidiQOL only
+- **Damage dealt**, with Overkill* (excess damage past 0 HP);
+- **Damage taken**, Overdamage* taken (with excess damage absorbed beyond max HP);
+- **Healing done**, with Overhealing* (healing done above the maximum health);
 - **Kills**, **max single hit**, **max single heal**, **times downed**
+
+  _all the "over" are available only with the "MidiQoL mode". Otherwise the option to track them will not be available._
 
 Sub-stats like overkill and overhealing are shown inline in the chat card, so the summary stays compact without losing detail. Stats unavailable in the current tracker mode are clearly marked in the settings and hidden automatically from all views.
 
