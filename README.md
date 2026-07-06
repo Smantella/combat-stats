@@ -147,14 +147,14 @@ Stats that are not available in the current tracker mode are shown as disabled w
 | | Version |
 |--|---------|
 | Foundry VTT | v13+ (tested on 13.351) |
-| D&D 5e system | v4+ (tested on 5.3.3, 2024 edition compatible) |
+| D&D 5e system | v5+ (tested on 5.3.3, 2024 edition compatible) |
 | MidiQOL | Optional, fully supported (tested on 13.0.63) |
 
 ---
 
 ## 🤝 Contributing
 
-Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues): I read them.
+Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues): I read them and do my best to implement the things / fix the bugs.
 
 ---
 
