@@ -113,7 +113,7 @@ Bar and doughnut colors follow each player's Foundry user color automatically.
 | Mode | When to use |
 |------|-------------|
 | **D&D 5e Standard** | Default dnd5e damage flow, no MidiQOL |
-| **MidiQOL** | MidiQOL is active: damage is registered on Apply, not on roll |
+| **MidiQoL** | MidiQoL is active: damage is registered on Apply, not on roll |
 
 > Changing tracker mode requires a Foundry reload (F5).
 
@@ -136,7 +136,7 @@ Stats that are not available in the current tracker mode are shown as disabled w
 - **Message**: fully customizable text with `{{name}}`, `{{value}}`, and `{{source}}` placeholders
 - **Live preview**: shows a sample message as you type, with a random name, weapon, and damage value
 
-> The names in the preview are not random — they belong to characters from the author's own campaigns.
+> The names in the preview are not random — they were my characters or from my very first campaign.
 
 ### Theme & Data
 
@@ -150,7 +150,7 @@ Stats that are not available in the current tracker mode are shown as disabled w
 |--|---------|
 | Foundry VTT | v13+ (tested on 13.351) |
 | D&D 5e system | v5+ (tested on 5.3.3, 2024 edition compatible) |
-| MidiQOL | Optional, fully supported (tested on 13.0.63) |
+| MidiQoL | Optional, fully supported (tested on 13.0.63) |
 
 ---
 
