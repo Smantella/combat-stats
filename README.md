@@ -166,4 +166,4 @@ Issues and pull requests are welcome. If something breaks or you have an idea, [
 
 *Made by [Smantella](https://github.com/Smantella)* 🏰
 
-*Combat Stats is **free and will always be free**. If it saved you from forgetting who actually carried that last fight, consider supporting development on [Patreon](https://patreon.com/Smantella).*
+*Combat Stats is **free and will always be free**. 
