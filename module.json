@@ -3,7 +3,7 @@
   "title": "Combat Stats",
   "description": "Per-character combat statistics for D&D 5e: damage dealt, overkill, damage taken, excess damage, healing done, overhealing, kills, and max single hit. Tracks each fight separately with history, charts, and Excel export. Supports native dnd5e and MidiQOL workflows. Customizable theme colors and chat card summary at end of combat.",
   "version": "2.0.0",
-  "compatibility": { "minimum": "13", "verified": "13.351", "maximum": "13" },
+  "compatibility": { "minimum": "14", "verified": "14.364", "maximum": "14" },
   "authors": [{ "name": "Smantella", "url": "https://github.com/Smantella" }],
   "esmodules": ["scripts/module.js"],
   "styles": ["styles/module.css"],
