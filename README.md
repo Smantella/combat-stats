@@ -168,4 +168,4 @@ Issues and pull requests are welcome. If something breaks or you have an idea, [
 
 *Made by [Smantella](https://github.com/Smantella)* 🏰
 
-*Combat Stats is **free and will always be free**. 
+## Check also the Pathfinder 2 version [here](https://github.com/Smantella/combat-stats-pf2e)
