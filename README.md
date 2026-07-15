@@ -34,12 +34,10 @@ No setup beyond choosing a tracker mode. No fuss.
 
 Every fight is recorded with a full breakdown per character:
 
-- **Damage dealt**, with Overkill* (excess damage past 0 HP);
-- **Damage taken**, Overdamage* taken (with excess damage absorbed beyond max HP);
-- **Healing done**, with Overhealing* (healing done above the maximum health);
+- **Damage dealt**, with overkill (excess damage past 0 HP) — MidiQOL only
+- **Damage taken**, with excess damage absorbed beyond max HP — MidiQOL only
+- **Healing done**, with overhealing tracked separately — MidiQOL only
 - **Kills**, **max single hit**, **max single heal**, **times downed**
-
-  _all the "over" are available only with the "MidiQoL mode". Otherwise the option to track them will not be available._
 
 Sub-stats like overkill and overhealing are shown inline in the chat card, so the summary stays compact without losing detail. Stats unavailable in the current tracker mode are clearly marked in the settings and hidden automatically from all views.
 
@@ -113,7 +111,7 @@ Bar and doughnut colors follow each player's Foundry user color automatically.
 | Mode | When to use |
 |------|-------------|
 | **D&D 5e Standard** | Default dnd5e damage flow, no MidiQOL |
-| **MidiQoL** | MidiQoL is active: damage is registered on Apply, not on roll |
+| **MidiQOL** | MidiQOL is active: damage is registered on Apply, not on roll |
 
 > Changing tracker mode requires a Foundry reload (F5).
 
@@ -133,10 +131,10 @@ Stats that are not available in the current tracker mode are shown as disabled w
 **Settings -> Theme & Data** includes a Big Hit section where you can configure:
 
 - **Threshold**: minimum damage in a single hit to trigger the callout (default 30, set to 0 to disable)
-- **Message**: fully customizable text with `{{name}}`, `{{value}}`, and `{{source}}` placeholders
+- **Message**: fully customizable text with `{{name}}`, `{{value}}`, `{{source}}`, and `{{round}}` placeholders
 - **Live preview**: shows a sample message as you type, with a random name, weapon, and damage value
 
-> The names in the preview are not random — they were my characters or from my very first campaign.
+> The names in the preview are not random — they belong to characters from the author's own campaigns.
 
 ### Theme & Data
 
@@ -149,14 +147,15 @@ Stats that are not available in the current tracker mode are shown as disabled w
 | | Version |
 |--|---------|
 | Foundry VTT | v13+ (tested on 13.351) |
-| D&D 5e system | v5+ (tested on 5.3.3, 2024 edition compatible) |
-| MidiQoL | Optional, fully supported (tested on 13.0.63) |
+| D&D 5e system | v4+ (tested on 5.3.3, 2024 edition compatible) |
+| MidiQOL | Optional, fully supported (tested on 13.0.63) |
 
 ---
 
+
 ## 🤝 Contributing
 
-Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues): I read them and do my best to implement the things / fix the bugs.
+Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues): I read them.
 
 ---
 
@@ -166,6 +165,4 @@ Issues and pull requests are welcome. If something breaks or you have an idea, [
 
 ---
 
-*Made by [Smantella](https://github.com/Smantella)* 🏰
-
-## Check also the Pathfinder 2 version [here](https://github.com/Smantella/combat-stats-pf2e)
+*Made by [Smantella](https://github.com/Smantella)*  🏰
