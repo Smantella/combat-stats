@@ -3,6 +3,7 @@
 > Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight.
 
 ![Foundry VTT](https://img.shields.io/badge/Foundry-v13-informational?style=flat-square)
+![Foundry VTT](https://img.shields.io/badge/Foundry-v14-informational?style=flat-square)
 ![D&D 5e](https://img.shields.io/badge/D%26D-5e%20%2F%202024-red?style=flat-square)
 ![Version](https://img.shields.io/github/v/release/Smantella/combat-stats?style=flat-square)
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey?style=flat-square)
