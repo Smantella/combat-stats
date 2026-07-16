@@ -1,3 +1,6 @@
+## Versions 3.x.x are only for FoundryVTT v14
+## Versions 2.x.x are only for FoundryVTT v13
+
 # ⚔️ Combat Stats
 
 > Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight.
