@@ -2,7 +2,7 @@
 
 > Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight.
 
-![Foundry VTT](https://img.shields.io/badge/Foundry-v13-informational?style=flat-square)
+![Foundry VTT](https://img.shields.io/badge/Foundry-v14-informational?style=flat-square)
 ![D&D 5e](https://img.shields.io/badge/D%26D-5e%20%2F%202024-red?style=flat-square)
 ![Version](https://img.shields.io/github/v/release/Smantella/combat-stats?style=flat-square)
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey?style=flat-square)
@@ -146,9 +146,9 @@ Stats that are not available in the current tracker mode are shown as disabled w
 
 | | Version |
 |--|---------|
-| Foundry VTT | v13+ (tested on 13.351) |
-| D&D 5e system | v4+ (tested on 5.3.3, 2024 edition compatible) |
-| MidiQOL | Optional, fully supported (tested on 13.0.63) |
+| Foundry VTT | v14+ (tested on 14.364) |
+| D&D 5e system | v5+ (tested on 5.3.3, 2024 edition compatible) |
+| MidiQOL | Optional, fully supported (tested on 14.0.11) |
 
 ---
 
