@@ -11,7 +11,7 @@
 ![Version](https://img.shields.io/github/v/release/Smantella/combat-stats?style=flat-square)
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey?style=flat-square)
 ![Downloads](https://img.shields.io/github/downloads/Smantella/combat-stats/total?style=flat-square)
-
+[![Discord](https://img.shields.io/discord/1528374320798367764?style=flat-square&logo=discord&label=Discord)](https://discord.gg/2wryMv9QZZ)
 ---
 
 ## 📸 Screenshots
