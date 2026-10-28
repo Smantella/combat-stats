@@ -3,7 +3,7 @@
 
 # ⚔️ Combat Stats
 
-> Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight. If you enjoy the module, please consider checking https://www.patreon.com/c/smantella/posts for some other awesome stuff
+> Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight. 
 
 ![Foundry VTT](https://img.shields.io/badge/Foundry-v13-informational?style=flat-square)
 ![Foundry VTT](https://img.shields.io/badge/Foundry-v14-informational?style=flat-square)
