@@ -1,17 +1,17 @@
-## Versions 3.x.x are only for FoundryVTT v14
-## Versions 2.x.x are only for FoundryVTT v13
-
 # ⚔️ Combat Stats
 
-> Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight. 
+> Your party deserves more than a forgotten roll. Combat Stats tracks every hit, heal, and kill, and makes sure no one forgets who carried the fight.
 
-![Foundry VTT](https://img.shields.io/badge/Foundry-v13-informational?style=flat-square)
-![Foundry VTT](https://img.shields.io/badge/Foundry-v14-informational?style=flat-square)
-![D&D 5e](https://img.shields.io/badge/D%26D-5e%20%2F%202024-red?style=flat-square)
+![Foundry VTT](https://img.shields.io/badge/Foundry-v13%20%7C%20v14-informational?style=flat-square)
+![D&D 5e](https://img.shields.io/badge/D%26D-5e-red?style=flat-square)
 ![Version](https://img.shields.io/github/v/release/Smantella/combat-stats?style=flat-square)
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey?style=flat-square)
 ![Downloads](https://img.shields.io/github/downloads/Smantella/combat-stats/total?style=flat-square)
-[![Discord](https://img.shields.io/discord/1528374320798367764?style=flat-square&logo=discord&label=Discord)](https://discord.gg/2wryMv9QZZ)
+[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-support%20me-FF5E5B?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/smantella)
+[![Discord: smantellaporci](https://img.shields.io/badge/Discord-smantellaporci-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/users/191284272726933506)
+
+Combat Stats 4.x uses one release line for **Foundry VTT 13 and 14**. Use a D&D 5e system version compatible with your Foundry installation; the old 2.x/3.x split does not describe the current release line.
+
 ---
 
 ## 📸 Screenshots
@@ -22,141 +22,173 @@
 | **End-of-Combat Card** | **Theme & Settings** |
 | ![Chat Card](screenshots/chat%20card.png) | ![Theme](screenshots/Style.png) |
 
----
-
 ## What it does
 
-Combat Stats is a Foundry VTT module for D&D 5e that automatically tracks combat statistics for every player character, fight by fight, across your entire campaign. When combat ends, a summary card is posted to chat. A dedicated window lets you browse totals, compare characters, and export everything to Excel.
+Combat Stats is a Foundry VTT module for D&D 5e that records combat statistics for each character, fight by fight, across your campaign. When a recorded combat is deleted, it saves the results and posts a summary to chat. Open the Combat Stats window to browse totals, compare characters, inspect damage by ability, and export the history.
 
-No setup beyond choosing a tracker mode. No fuss.
-
----
+Choose your tracker mode, reload Foundry, and run a combat.
 
 ## ✨ Features
 
-### 📊 Deep stat tracking
+### 📊 Character and enemy statistics
 
-Every fight is recorded with a full breakdown per character:
+- **Damage dealt** and **damage taken**.
+- **Healing done**.
+- **Kills**, **maximum single hit**, **maximum single heal**, and **times downed**.
+- **Overkill**, **excess damage taken**, and **overhealing**, using the extra information available in MidiQOL workflows.
+- **Average d20**, with the number of recorded rolls in the statistics window and Excel export.
+- **Minion kills**, tracked separately when the optional Minion! integration is enabled.
 
-- **Damage dealt**, with overkill (excess damage past 0 HP) — MidiQOL only
-- **Damage taken**, with excess damage absorbed beyond max HP — MidiQOL only
-- **Healing done**, with overhealing tracked separately — MidiQOL only
-- **Kills**, **max single hit**, **max single heal**, **times downed**
+Enable **Track enemy stats** to record NPC statistics too. These are aggregated by Actor in separate Enemies sections of the statistics window. Enemy statistic rows do not appear in the party's chat summary; the defeated enemies list has its own display settings.
 
-Sub-stats like overkill and overhealing are shown inline in the chat card, so the summary stays compact without losing detail. Stats unavailable in the current tracker mode are clearly marked in the settings and hidden automatically from all views.
+Native tracking uses the HP changes exposed by D&D 5e. It cannot recover damage or healing that was rolled but never applied, or the unapplied portion beyond an HP limit.
+
+### 🎲 Average d20
+
+See each character's average **natural retained d20 result**, without modifiers. Includes standard attack rolls, saving throws (including concentration), ability checks, skill checks, tool checks, and initiative during a tracked combat.
+
+Discarded advantage/disadvantage dice and discarded reroll results do not count. Damage dice, death saves, cancelled roll dialogs, and fixed initiative scores without a d20 are excluded. Initiative is captured from core initiative chat messages, including individual and bulk rolls.
+
+The chat card shows a white d20 icon and the average. The statistics window and Excel export also show the roll count. Overall averages use **sum of results ÷ total roll count**, rather than averaging each combat's average.
+
+Historical combats without d20 data show **—**. Custom rolls that bypass the system roll events and core initiative messages are not included. Frequent advantage can raise the average: this measures retained results rather than pure luck.
 
 ### 💬 End-of-combat chat card
 
-When combat ends, a styled summary is automatically posted to chat. Columns are configurable independently from tracking: you choose what appears, not what gets recorded. Player names use their Foundry color, and the card adapts to whatever theme you have set.
+The compact recap includes configurable columns for **Kills**, **Damage dealt**, **Damage taken**, and **Healing done**, plus **Average d20**. Hover over an icon to see its label. Character names use their Foundry player colors.
 
-A **Big Hit achievement** callout highlights the biggest strike of the fight, with a fully customizable message and live preview as you type it.
+A **Big Hit** callout can highlight the largest strike. Customize its threshold and message, with `{{name}}`, `{{value}}`, `{{source}}`, and `{{round}}` placeholders and a live preview.
 
-### 📈 Charts window
+Set **Chat message sender (Actor ID)** to post the recap as a chosen Actor. Leave it empty to use the default **⚔️ Combat Stats** alias.
 
-A dedicated window (accessible from the scene controls) shows cumulative totals per character across all fights. Switch between any tracked metric with one click, toggle between **Bar** and **Doughnut** views, and export everything to Excel at any time.
+### 🕵️ Control defeated enemy names
 
-Bar and doughnut colors follow each player's Foundry user color automatically.
+Choose **Defeated enemy names** in module settings:
 
-### 🎨 Full theme customization
+| Option | Result |
+|---|---|
+| **Actor names** | Display the defeated Actor's name. |
+| **Token names** | Display the name recorded for the individual token. |
+| **Hidden** | Omit the defeated enemies list. |
 
-14 individually customizable colors covering every stat category, backgrounds, and accents. Changes apply live as you drag the color picker. Reset to defaults at any time.
+This applies to chat summaries, the statistics window, and Excel exports. Use **Enemy Names for Current Combat** in the scene controls for a per-combat override. For saved fights, click **Enemy Names** in the Single Fight view.
 
-### 💾 Export and import
+In Token names or Hidden mode, aggregated enemy statistics are GM-only because their labels use Actor names. Token names must be safe to reveal; this is not automatic integration with third-party name-hiding modules. These settings control presentation, not access to stored world data. Existing chat messages are unchanged. Older records without token names display **Unknown enemy** in Token names mode.
 
-- **Export to Excel**: full campaign history as a `.xlsx` spreadsheet
-- **Export JSON**: portable fight history you can back up or share
-- **Import JSON**: smart merge by UUID (no duplicates) or full replace
+### 💀 GM kill corrections and revival
 
-### ⚙️ Flexible configuration
+An enemy survived with 2 HP, but you decided the attack was enough? Select its token and click **Correct Kill Credit (Selected Enemy)** in the Combat Stats scene controls.
 
-- **MidiQOL** and **native D&D 5e** tracker modes: in MidiQOL mode, damage is registered only when actually applied, no double-counting
-- Stats that require MidiQOL (overkill, excess damage taken, overhealing) are automatically hidden from all views when using the native tracker
-- Every stat can be toggled independently: tracking and chat card visibility are separate settings
-- Name display: full name, first name, last name, or Foundry username
-- AoE damage and healing can count as a single hit/heal or be evaluated per target for the max hit and max heal trackers
-- Players can optionally be granted access to the Charts window
+- **Assign / Reassign Kill** awards or transfers the credit to a character.
+- **Remove Kill** removes that token's credit.
 
----
+These commands update the kill count and defeated list without changing HP, damage, or maximum-hit statistics. Each correction affects one token, including individual victims of an area attack. Only the active GM can make corrections during the currently tracked combat. Minion victims use the separate minion counter.
+
+**Undo kills when enemies regain HP** is enabled by default. When the same enemy token returns above zero HP, its current credit is removed so a later final blow can receive credit. Disable this if later resurrection should preserve the earlier credit. This applies to normal enemies and tracked minions in the current combat.
+
+### 🧙 Summons and transformed characters
+
+Creatures created through the D&D 5e Summon activity are attributed to their summoner. Wild Shape and Polymorph attribution also resolves transformed forms back to the original character when supported system data is available.
+
+The optional **Attribute player-owned NPCs to their player** setting broadens attribution to player-owned NPCs. Use it deliberately: story NPCs assigned to players may also match. **Ask who a summon belongs to** lets the GM identify newly created NPCs that cannot be attributed automatically.
+
+### 📈 Charts and damage by ability
+
+Browse campaign totals, individual fights, and history charts. Compare supported metrics with **Bar**, **Doughnut**, or **Trend** views. Chart colors follow Foundry player colors.
+
+The Abilities view ranks damage by ability, with hits, average damage, maximum hit, and share of total damage. Select multiple characters to compare their breakdowns.
+
+### 🎨 Theme and data management
+
+Customize statistic colors, backgrounds, accents, and the Big Hit message from **Theme & Data**.
+
+- **Export to Excel**: fight sheets and campaign summaries, including d20 averages and available minion counts.
+- **Export JSON**: portable combat history for backups or sharing.
+- **Import JSON**: merge by fight ID to avoid duplicates, or replace the history.
+- Clear history or remove saved fights using the GM controls.
+
+## 🤝 Plays well with Minion!
+
+[**Minion!**](https://foundryvtt.com/packages/minion-bang), by [therealsega87](https://github.com/therealsega87), automates the minion rules from MCDM's *Flee, Mortals!* on top of MidiQOL, including overkill and optional shared turns and bands.
+
+With a compatible Minion! build, Combat Stats records **minion kills separately from normal kills**. The chat kill cell displays **normal kills (minion kills)** — for example, **2 (5)** — and character tables and Excel exports include a **Minion kills** column. Extra overkill victims do not duplicate the original attack's damage.
+
+**Track Minion! kills** appears in Combat Stats settings only when Minion! is active and is enabled by default. Separate tracking requires the Minion! public kill API and event **schema 1**; Combat Stats warns the GM if that API is unavailable. The integration handles duplicate notifications, unknown attackers, global encounters, revival, and the existing GM correction commands. Minion events must belong to the tracked, started combat. Historical kills are not reclassified.
+
+Get Minion! from its [Foundry package page](https://foundryvtt.com/packages/minion-bang), or read the guide and report issues on its [GitHub repository](https://github.com/therealsega87/minion-bang).
 
 ## 📦 Installation
 
-### Via Foundry Package Manager (recommended)
+### Foundry Package Manager
 
-1. Open Foundry VTT -> **Add-on Modules** -> **Install Module**
-2. Paste the manifest URL:
-   ```
+1. Open **Add-on Modules → Install Module**.
+2. Paste this manifest URL:
+
+   ```text
    https://github.com/Smantella/combat-stats/releases/latest/download/module.json
    ```
-3. Click **Install**, then enable the module in your world
 
-### Manual
+3. Install Combat Stats and its required dependency, **socketlib**.
+4. Enable the modules in your world and reload Foundry.
 
-1. Download the latest release from [GitHub Releases](https://github.com/Smantella/combat-stats/releases)
-2. Extract the folder into `Data/modules/`
-3. Enable in Foundry -> **Manage Modules**
+### Manual installation
 
----
+Download the runtime ZIP from [GitHub Releases](https://github.com/Smantella/combat-stats/releases) and extract its contents into **`Data/modules/combat-stats/`**. The `module.json` file must be directly inside that folder. Enable the module and socketlib, then reload Foundry.
 
-## 🚀 Quick Start
+Runtime ZIPs contain only the files Foundry needs. Tests, optional macro examples, screenshots, and documentation are maintained in the source repository.
 
-1. Enable the module and reload Foundry (F5)
-2. Go to **Game Settings -> Module Settings -> Combat Stats**
-3. Set your **Tracker Mode**: `D&D 5e Standard` or `MidiQOL`
-4. Run a combat: stats are tracked automatically
-5. End the combat: a summary card appears in chat
-6. Click the **Combat Stats** button in the scene controls to open the Charts window
+## 🚀 Quick start
 
----
+1. Open **Game Settings → Module Settings → Combat Stats**.
+2. Choose a tracker mode matching your damage workflow, then reload Foundry.
+3. Create a combat and confirm its name when prompted.
+4. Run the encounter. Start the combat before expecting Minion! kill notifications to count.
+5. Use **End Combat** to delete the encounter and save its recap. Merely pausing it does not finalize the statistics.
+6. Open **Combat Stats** from the scene controls to browse saved results.
 
-## ⚙️ Configuration
+## ⚙️ Configuration and requirements
 
 ### Tracker mode
 
-| Mode | When to use |
-|------|-------------|
-| **D&D 5e Standard** | Default dnd5e damage flow, no MidiQOL |
-| **MidiQOL** | MidiQOL is active: damage is registered on Apply, not on roll |
+| Mode | Use when |
+|---|---|
+| **D&D 5e Standard** | Using the native D&D 5e damage workflow. |
+| **MidiQOL — Auto apply damage** | MidiQOL applies damage automatically. |
+| **MidiQOL — Manual apply damage** | Damage is applied manually from the MidiQOL workflow. |
 
-> Changing tracker mode requires a Foundry reload (F5).
+Match Combat Stats to MidiQOL's own **Auto apply damage to target** setting. Reload Foundry after changing either setting. The MidiQOL choices are disabled when MidiQOL is inactive; a saved incompatible mode produces a warning.
 
-### Tracked Statistics
+### Tracking, display, and access
 
-**Settings -> Tracked Statistics** has two independent sections:
+- **Tracked Statistics** contains controls for supported tracked statistics and the four core chat columns. The d20 average is displayed separately.
+- **Name display in recap** selects full name, first name, last name, or Foundry username.
+- **Players can view charts** grants non-GM users access to the statistics window.
+- **Count AoE as a single hit** controls whether multi-target damage is combined for the maximum-hit tracker.
+- **Big hit threshold** defaults to 30; set it to 0 to disable the callout.
 
-- **Tracking**: which stats are computed and stored per fight
-- **Chat card columns**: which stats appear in the end-of-combat summary
+### Compatibility
 
-Disabling a stat from tracking also hides it everywhere. Disabling it from the chat card only hides it from the summary; it still gets tracked.
+| Component | Requirement |
+|---|---|
+| Foundry VTT | Versions 13–14, as declared in the manifest. |
+| D&D 5e | Minimum 5.3.0; compatibility updates target 6.0.6. Choose a system release compatible with your Foundry version. |
+| socketlib | Required for relaying player-originated tracking data to the GM. |
+| MidiQOL | Optional; select the matching tracker mode when using its damage workflow. |
+| Minion! | Optional; separate minion tracking requires its schema 1 kill API. Follow Minion!'s own system and dependency requirements too. |
 
-Stats that are not available in the current tracker mode are shown as disabled with a "MidiQOL only" badge, and are automatically hidden from the Charts window and chat card.
+Native HP updates are processed once by the active GM. Player-originated action attribution and d20 data use socketlib where required. Avoid running incompatible versions of Foundry, D&D 5e, or automation modules together.
 
-### Big Hit Achievement
+After updating, reload Foundry and start a new combat. New statistics are recorded from that point onward; historical records and existing chat cards are not rebuilt automatically.
 
-**Settings -> Theme & Data** includes a Big Hit section where you can configure:
+## 🤝 Contributing and support
 
-- **Threshold**: minimum damage in a single hit to trigger the callout (default 30, set to 0 to disable)
-- **Message**: fully customizable text with `{{name}}`, `{{value}}`, `{{source}}`, and `{{round}}` placeholders
-- **Live preview**: shows a sample message as you type, with a random name, weapon, and damage value
+Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues) or reach me on Discord For bugs, include your Foundry, D&D 5e, Combat Stats, and automation module versions, the selected tracker mode, and steps to reproduce.
 
-> The names in the preview are not random — they belong to characters from the author's own campaigns.
-
-### Theme & Data
-
-**Settings -> Theme & Data** covers colors, the Big Hit message, and data management (export, import, clear history).
-
----
-
-
-## 🤝 Contributing
-
-Issues and pull requests are welcome. If something breaks or you have an idea, [open an issue](https://github.com/Smantella/combat-stats/issues): I read them.
-
----
+[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-support%20me-FF5E5B?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/smantella)
+[![Discord: smantellaporci](https://img.shields.io/badge/Discord-smantellaporci-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/users/191284272726933506)
 
 ## 📄 License
 
-[Creative Commons Attribution-ShareAlike 4.0](LICENSE): you are free to use and modify this module, but you must credit the original author and distribute any modified version under the same license.
+[Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/): you may use and modify this module with attribution to the original author and distribution of adaptations under the same license.
 
----
-
-*Made by [Smantella](https://github.com/Smantella)*  🏰
+*Made by [Smantella](https://github.com/Smantella)* 🏰
