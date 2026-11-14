@@ -1,15 +1,48 @@
 {
   "id": "combat-stats",
   "title": "Combat Stats",
-  "description": "Per-character combat statistics for D&D 5e: damage dealt, overkill, damage taken, excess damage, healing done, overhealing, kills, and max single hit. Tracks each fight separately with history, charts, and Excel export. Supports native dnd5e and MidiQOL workflows. Customizable theme colors and chat card summary at end of combat.",
+  "description": "Per-character combat statistics for D&D 5e and Pathfinder 1e: damage dealt, damage taken, healing done, and kills. Tracks each fight separately with history, charts, and Excel export. Supports native dnd5e, MidiQOL and pf1 workflows. Customizable theme colors and chat card summary at end of combat.",
   "version": "2.0.0",
-  "compatibility": { "minimum": "13", "verified": "13.351", "maximum": "13" },
-  "authors": [{ "name": "Smantella", "url": "https://github.com/Smantella" }],
-  "esmodules": ["scripts/module.js"],
-  "styles": ["styles/module.css"],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system"
+      },
+      {
+        "id": "pf1",
+        "type": "system"
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Smantella",
+      "url": "https://github.com/Smantella"
+    }
+  ],
+  "esmodules": [
+    "scripts/module.js"
+  ],
+  "styles": [
+    "styles/module.css"
+  ],
   "languages": [
-    { "lang": "en", "name": "English", "path": "lang/en.json" },
-    { "lang": "it", "name": "Italiano", "path": "lang/it.json" }
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "lang/it.json"
+    }
   ],
   "license": "CC-BY-SA-4.0",
   "flags": {},

@@ -3,6 +3,24 @@
 
   <section class="cs-settings-section">
     <h3><i class="fa-solid fa-gears"></i> {{localize "COMBATSTATS.Settings.Workflow"}}</h3>
+    {{#if isPf1}}
+    <div class="cs-setting-row">
+      <label>{{localize "COMBATSTATS.Settings.TrackerMode"}}</label>
+      <span style="color:var(--cs-accent);font-weight:700;">{{localize "COMBATSTATS.Settings.TrackerPf1"}}</span>
+    </div>
+    <div class="cs-setting-row">
+      <label>{{localize "COMBATSTATS.Settings.Pf1DeathThreshold"}}</label>
+      <select name="pf1DeathThreshold">
+        <option value="zero" {{#if (eq pf1DeathThreshold 'zero')}}selected{{/if}}>
+          {{localize "COMBATSTATS.Settings.Pf1DeathZero"}}
+        </option>
+        <option value="negCon" {{#if (eq pf1DeathThreshold 'negCon')}}selected{{/if}}>
+          {{localize "COMBATSTATS.Settings.Pf1DeathNegCon"}}
+        </option>
+      </select>
+      <p class="cs-hint">{{localize "COMBATSTATS.Settings.Pf1DeathThresholdHint"}}</p>
+    </div>
+    {{else}}
     <div class="cs-setting-row">
       <label>{{localize "COMBATSTATS.Settings.TrackerMode"}}</label>
       <select name="trackerMode">
@@ -15,6 +33,7 @@
       </select>
       <p class="cs-hint">{{localize "COMBATSTATS.Settings.TrackerModeHint"}}</p>
     </div>
+    {{/if}}
     <div class="cs-setting-row cs-setting-toggle">
       <label>{{localize "COMBATSTATS.Settings.PlayersViewCharts"}}</label>
       <input type="checkbox" name="playersCanViewCharts" {{#if playersCanViewCharts}}checked{{/if}}>

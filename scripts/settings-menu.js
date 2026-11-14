@@ -25,7 +25,9 @@ export class CombatStatsSettings extends FormApplication {
     const g = k => game.settings.get(MODULE_ID, k);
     const history = game.settings.get(MODULE_ID, "combatHistory") ?? [];
     return {
+      isPf1:                game.system.id === "pf1",
       trackerMode:          g("trackerMode"),
+      pf1DeathThreshold:    g("pf1DeathThreshold"),
       playersCanViewCharts: g("playersCanViewCharts"),
       colorAccent:          g("colorAccent"),
       colorBg:              g("colorBg"),
