@@ -4,6 +4,7 @@
 
 ![Foundry VTT](https://img.shields.io/badge/Foundry-v13%20%7C%20v14-informational?style=flat-square)
 ![D&D 5e](https://img.shields.io/badge/D%26D-5e-red?style=flat-square)
+![Pathfinder 1e](https://img.shields.io/badge/Pathfinder-1e-darkred?style=flat-square)
 ![Version](https://img.shields.io/github/v/release/Smantella/combat-stats?style=flat-square)
 ![License](https://img.shields.io/badge/license-CC%20BY--SA%204.0-lightgrey?style=flat-square)
 ![Downloads](https://img.shields.io/github/downloads/Smantella/combat-stats/total?style=flat-square)
@@ -158,6 +159,16 @@ Runtime ZIPs contain only the files Foundry needs. Tests, optional macro example
 
 Match Combat Stats to MidiQOL's own **Auto apply damage to target** setting. Reload Foundry after changing either setting. The MidiQOL choices are disabled when MidiQOL is inactive; a saved incompatible mode produces a warning.
 
+### 🐉 Pathfinder 1e
+
+In a Pathfinder 1e world, Combat Stats picks the **Pathfinder 1e** tracker automatically; the D&D 5e / MidiQOL choice is hidden.
+
+- **Damage and healing** are measured from HP changes, so chat card buttons, token HUD edits, and macros all count. Damage taken includes temporary HP lost and nonlethal damage gained; healing done is the HP regained.
+- **Attribution** comes from PF1 attack and spell chat cards: the most recent card from a character in the last 30 seconds gets the credit. Actions whose type is **Healing** count as heals; uses with no attack and no damage (buffs, for example) are ignored.
+- **Enemy counts as defeated at** sets when a kill is credited: **0 HP or below** (default) or **Negative Constitution score**, the rules-as-written death threshold. Creatures without a Constitution score are defeated at 0 HP.
+
+Tracking runs on the active GM only. If several characters roll before the GM applies damage, credit goes to whoever rolled last. Overkill, average d20, and the other D&D 5e-specific statistics are not tracked in PF1.
+
 ### Tracking, display, and access
 
 - **Tracked Statistics** contains controls for supported tracked statistics and the four core chat columns. The d20 average is displayed separately.
@@ -174,6 +185,7 @@ Match Combat Stats to MidiQOL's own **Auto apply damage to target** setting. Rel
 | D&D 5e | Minimum 5.3.0; compatibility updates target 6.0.6. Choose a system release compatible with your Foundry version. |
 | socketlib | Required for relaying player-originated tracking data to the GM. |
 | MidiQOL | Optional; select the matching tracker mode when using its damage workflow. |
+| Pathfinder 1e | Supported as an alternative to D&D 5e; the tracker mode is selected automatically. |
 | Minion! | Optional; separate minion tracking requires its schema 1 kill API. Follow Minion!'s own system and dependency requirements too. |
 
 Native HP updates are processed once by the active GM. Player-originated action attribution and d20 data use socketlib where required. Avoid running incompatible versions of Foundry, D&D 5e, or automation modules together.

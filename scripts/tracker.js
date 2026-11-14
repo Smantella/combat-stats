@@ -7,6 +7,7 @@
  */
 
 import { SummaryApp } from "./summary.js";
+import { Pf1Source }  from "./systems/pf1.js";
 
 const MODULE_ID = "combat-stats";
 const S_HISTORY = "combatHistory";
@@ -41,6 +42,12 @@ export class CombatTracker {
       if (!current?.combatId || current.combatId !== combat.id) return;
       await this._finaliseAndSave(combat, current.fightName);
     });
+
+    // Pathfinder 1e: its own source handles damage, healing and kills.
+    if (this._mode === "pf1") {
+      new Pf1Source(this).init();
+      return;
+    }
 
     this._initDamageHooks();
 

@@ -45,6 +45,10 @@ Hooks.once("init", () => {
     }
   });
 
+  game.settings.register(MODULE_ID, "pf1DeathThreshold", {
+    ...hidden, type: String, default: "zero", name: "PF1 death threshold"
+  });
+
   const colorKeys = [
     { key: "colorAccent", def: COLOR_DEFAULTS.accent },
     { key: "colorBg",     def: COLOR_DEFAULTS.bg     },
@@ -72,8 +76,7 @@ Hooks.once("init", () => {
 
 // ─── Ready ─────────────────────────────────────────────────────────────────────
 Hooks.once("ready", () => {
-  const mode = game.settings.get(MODULE_ID, SETTING_TRACKER);
-  game.combatStats = new CombatTracker(mode);
+  game.combatStats = new CombatTracker(resolveTrackerMode());
   game.combatStats.init();
   applyTheme();
 
@@ -84,6 +87,14 @@ Hooks.once("ready", () => {
   };
   console.log("Combat Stats | Ready");
 });
+
+// ─── Tracker mode by game system ───────────────────────────────────────────────
+// PF1 always uses its own source; the dnd5e/MidiQOL choice only applies to dnd5e.
+export function resolveTrackerMode() {
+  if (game.system.id === "pf1") return "pf1";
+  const mode = game.settings.get(MODULE_ID, SETTING_TRACKER);
+  return mode === "midi" ? "midi" : "native";
+}
 
 // ─── CSS theme ─────────────────────────────────────────────────────────────────
 export function applyTheme() {
